@@ -480,7 +480,12 @@ h4 {
   grid-template-columns: 1fr;
   gap: var(--space-3);
   margin-top: var(--space-8);
-  max-width: 460px;
+  max-width: 620px;
+}
+
+.hero-actions .btn {
+  padding-inline: 1rem;
+  letter-spacing: 0.08em;
 }
 
 .stats-band {
@@ -1212,6 +1217,7 @@ textarea:focus {
   object-fit: contain;
   filter: grayscale(1) invert(1) contrast(1.65) brightness(1.08);
   opacity: 0.88;
+  transform: translateY(-3px);
 }
 
 .whatsapp-float {
@@ -1514,7 +1520,7 @@ textarea:focus {
   }
 
   .hero-actions {
-    max-width: 560px;
+    max-width: 660px;
   }
 
   .panel,

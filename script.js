@@ -1,5 +1,5 @@
 const WHATSAPP_URL =
-  "https://wa.me/919374032161?text=Hello%20The%20Warehouse%20Guruz%2C%20I%20would%20like%20to%20discuss%20an%20industrial%20real%20estate%20requirement.";
+  "https://wa.me/919374032161?text=Hello%20The%20Warehouse%20Guruz%2C%20I%20want%20to%20discuss%20my%20industrial%20space%20needs.";
 const CONTACT_ENDPOINT = "/api/contact";
 const FORM_RATE_LIMIT_MAX = 5;
 const FORM_RATE_LIMIT_WINDOW_MS = 60 * 60 * 1000;
@@ -53,6 +53,33 @@ document.addEventListener("DOMContentLoaded", () => {
     if (link.dataset.nav === currentPage) {
       link.setAttribute("aria-current", "page");
     }
+  });
+
+  document.querySelectorAll("[data-service-toggle]").forEach((button) => {
+    const target = document.getElementById(button.getAttribute("aria-controls"));
+    if (!target) return;
+    let closeTimer;
+
+    button.addEventListener("click", () => {
+      const isExpanded = button.getAttribute("aria-expanded") === "true";
+      window.clearTimeout(closeTimer);
+      button.closest(".reveal")?.classList.add("is-visible");
+      button.setAttribute("aria-expanded", String(!isExpanded));
+      button.textContent = isExpanded ? "Learn More" : "Read Less";
+
+      if (isExpanded) {
+        target.classList.remove("is-open");
+        closeTimer = window.setTimeout(() => {
+          target.hidden = true;
+        }, 520);
+        return;
+      }
+
+      target.hidden = false;
+      window.requestAnimationFrame(() => {
+        target.classList.add("is-open");
+      });
+    });
   });
 
   if ("IntersectionObserver" in window) {

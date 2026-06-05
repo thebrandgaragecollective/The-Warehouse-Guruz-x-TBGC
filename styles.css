@@ -252,7 +252,7 @@ h4 {
   width: auto;
   height: clamp(96px, 10vw, 128px);
   max-width: min(280px, 76vw);
-  filter: brightness(0) invert(1);
+  filter: none;
 }
 
 .nav-links {
